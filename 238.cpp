@@ -4,22 +4,42 @@ using namespace std;
 
 int main(){
     vector<int> nums = {1, 2, 3, 4};
-    
     int n = nums.size();
-    vector<int> ans(n, 1);
-
-    for(int i=1; i<n; i++){
-        ans[i] = ans[i-1] * nums[i-1];
+    vector<int> answer(n, 1);
+    
+    
+    
+    for(int i=0; i<n-1; i++){
+        answer[i+1] = answer[i] * nums[i];
+        
     }
-
     int suffix = 1;
     for(int i=n-2; i>=0; i--){
         suffix *= nums[i+1];
-        ans[i] *= suffix;
+        answer[i] *= suffix;
     }
-    for(int val: ans){
-        cout << val << " ";
+    
+    for(int val: answer){
+        cout << val << endl;
     }
+ 
+
+    
+    // int n = nums.size();
+    // vector<int> ans(n, 1);
+
+    // for(int i=1; i<n; i++){
+    //     ans[i] = ans[i-1] * nums[i-1];
+    // }
+
+    // int suffix = 1;
+    // for(int i=n-2; i>=0; i--){
+    //     suffix *= nums[i+1];
+    //     ans[i] *= suffix;
+    // }
+    // for(int val: ans){
+    //     cout << val << " ";
+    // }
 
 
 
