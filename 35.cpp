@@ -7,27 +7,67 @@ using namespace std;
 
 int main(){
     vector<int> nums = {1, 3, 5, 6};
-    int n = nums.size(),count = 0, target = 4;
+    int target = 4,     maxSum = INT_MIN;
+    int st = 0, end = nums.size() -1, count = 0;
+        while(st <= end){
+            int mid = st+(end-st)/2;
 
-    int st = 0, end = n-1;
+            if(target == nums[mid]){
+                count = mid;
+                break;
+            }
+            else if(target < nums[mid]){
+                end = mid-1;
+                count = mid;
+            }
+            else if(target > nums[mid]){
+                st = mid+1;
+                count = mid+1;
+            }
+        }
+        cout << count << endl;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//     int n = nums.size(),count = 0, target = 4;
+
+//     int st = 0, end = n-1;
     
-    while(st <= end){
-        int mid =st +(end-st)/2;
+//     while(st <= end){
+//         int mid =st +(end-st)/2;
         
-        if(target == nums[mid]){
-            cout << mid << endl;
-            break;
-        }
-        else if(target > nums[mid]){
-            count = mid+1;
-            st = mid+1;
-        }
-        else if(target < nums[mid]){
-            end = mid-1;
-            // count =  mid;
-        }
-    }
-  cout << count << endl;
+//         if(target == nums[mid]){
+//             cout << mid << endl;
+//             break;
+//         }
+//         else if(target > nums[mid]){
+//             count = mid+1;
+//             st = mid+1;
+//         }
+//         else if(target < nums[mid]){
+//             end = mid-1;
+//             // count =  mid;
+//         }
+//     }
+//   cout << count << endl;
 
 
 

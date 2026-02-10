@@ -5,48 +5,35 @@ using namespace std;
 
 int main(){
     vector<int> height = {1,8,6,2,5,4,8,3,7};
-    int maxWater = 0;
-       int lp = 0, rp = height.size() - 1;
-       while(lp < rp){
-        int width = rp - lp;
-        int minHeight = min(height[lp], height[rp]);
-        maxWater = max(maxWater, (width * minHeight));
+    int maxWater = 0, n= height.size();
+
+    // brute force approach
+    for(int i=0; i<n-2; i++){
+        for(int j=n-1; j>i; j--){
+            int width = j-i;
+            int minHeight = min(height[i], height[j]);
+            maxWater = max(maxWater, (width*minHeight));
+        }
+    }
+    cout << maxWater << endl;
+
+
+    //    int lp = 0, rp = height.size() - 1;
+    //    while(lp < rp){
+    //     int width = rp - lp;
+    //     int minHeight = min(height[lp], height[rp]);
+    //     maxWater = max(maxWater, (width * minHeight));
         
-        if(height[lp] < height[rp]){
-            lp++;
-        }
-        else{
-            rp--;
-        }
-       }
-       cout << maxWater << endl;
+    //     if(height[lp] < height[rp]){
+    //         lp++;
+    //     }
+    //     else{
+    //         rp--;
+    //     }
+    //    }
+    //    cout << maxWater << endl;
      
        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     // int st = 0, end = height.size() - 1;
     // while(st < end){
@@ -63,29 +50,6 @@ int main(){
     // }
     // cout << maxWater;
 
-
-
-
-
-
-
-    // vector<int> height = {1,8,6,2,5,4,8,3,7};
-    // int maxHeight = 0;
-    // int maxWater = 0;
-    // int j = 1;
-
-    // for(int i=0; i<height.size(); i++){
-       
-    //         int width = j - i;
-    //         maxHeight = min(height[i], height[j]);
-    //         int area = maxHeight * width;
-    //         maxWater = max(area, maxWater);
-    //         j++;
-           
-        
-        
-    // }
-    // cout << maxWater << endl;
         
     return 0;
 }
