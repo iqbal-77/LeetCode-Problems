@@ -5,6 +5,16 @@ using namespace std;
 int main(){
     vector<int> nums = {3, 5, 3, 2, 0};
     int st = 1, end = nums.size()-2;
+    
+
+
+
+
+
+
+
+
+
 
     while(st <= end){
         int mid = st +(end - st)/2; 

@@ -8,21 +8,39 @@ int binarySearch(vector<int> nums, int target){
     while(st <= end){
         int mid = st+(end-st)/2;
         if(nums[mid] == target){
-            return mid;
+            return true;
+        }
+        if(nums[st] == nums[mid]){
+            st++;
+        }
+        if(nums[end] == nums[mid]){
+            end--;
         }
 
-        if(nums[st] <= nums[mid]){ // left half
-                
+        else if(nums[st] <= nums[mid]){ // left half
+            if(nums[st] <= target && target <= nums[mid]){
+                end = mid-1;
+            }
+            else {
+                st = mid+1;
+            } 
         }
 
         else{  // right half
-
+            if(nums[mid] <= target && target <= nums[end]){
+                st = mid+1;
+            }
+            else{
+                end = mid-1;
+            }
         }
     }
+    return false;
 }
 
 int main(){
-    vector<int> nums = {1, 0, 1, 1, 1};
-    int target = 0;
+    vector<int> nums = {3, 1};
+    int target = 1;
+    cout << binarySearch(nums, target) << endl;
     return 0;
 }
